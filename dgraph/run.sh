@@ -8,4 +8,6 @@ helm install dgraph dgraph/dgraph -n dgraph-chaos
 
 sleep 60 # wait for dgraph is started
 echo "Start chaos alpha"
-kubectl apply -f pod-kill-alpha.yaml
+kubectl apply -f pod-kill-zero.yaml
+
+kubectl port-forward svc/dgraph-dgraph-ratel 8000:80 -n dgraph-chaos

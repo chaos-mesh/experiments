@@ -1,0 +1,20 @@
+apiVersion: chaos-mesh.org/v1alpha1
+kind: NetworkChaos
+metadata:
+  name: network-partition
+  namespace: dgraph-chaos
+spec:
+  action: partition
+  mode: one
+  selector:
+    labelSelectors:
+      "component": "alpha"
+  direction: to
+  target:
+    selector:
+      labelSelectors:
+        "component": "zero"
+    mode: one
+  duration: "10s"
+  scheduler:
+    cron: "@every 15s"
