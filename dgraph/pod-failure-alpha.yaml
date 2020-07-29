@@ -1,0 +1,14 @@
+apiVersion: chaos-mesh.org/v1alpha1
+kind: PodChaos
+metadata:
+  name: pod-failure-alpha
+  namespace: dgraph-chaos
+spec:
+  action: pod-failure
+  mode: one
+  duration: "100s"
+  selector:
+    labelSelectors:
+      "component": "alpha"
+  scheduler:
+    cron: "@every 5m"
