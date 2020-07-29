@@ -1,4 +1,4 @@
-
+echo "install dgraph helm charts"
 helm repo add dgraph https://charts.dgraph.io
 helm repo update
 echo "Start clean and create namespace dgraph-chaos"
