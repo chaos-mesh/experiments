@@ -15,6 +15,6 @@ spec:
       labelSelectors:
         "component": "zero"
     mode: one
-  duration: "10s"
+  duration: "30s"
   scheduler:
-    cron: "@every 15s"
+    cron: "@every 2m"
