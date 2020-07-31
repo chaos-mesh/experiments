@@ -1,0 +1,20 @@
+apiVersion: chaos-mesh.org/v1alpha1
+kind: NetworkChaos
+metadata:
+  name: network-partition
+  namespace: crdb-chaos
+spec:
+  action: partition
+  mode: one
+  selector:
+    labelSelectors:
+      "statefulset.kubernetes.io/pod-name": "crdb-cockroachdb-1"
+  direction: to
+  target:
+    selector:
+      labelSelectors:
+        "statefulset.kubernetes.io/pod-name": "crdb-cockroachdb-2"
+    mode: one
+  duration: "300s"
+  scheduler:
+    cron: "@every 10m"
