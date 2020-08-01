@@ -8,12 +8,12 @@ spec:
   mode: one
   selector:
     labelSelectors:
-      "statefulset.kubernetes.io/pod-name": "crdb-cockroachdb-1"
+      "app.kubernetes.io/instance": "crdb"
   direction: to
   target:
     selector:
       labelSelectors:
-        "statefulset.kubernetes.io/pod-name": "crdb-cockroachdb-2"
+        "app.kubernetes.io/instance": "crdb"
     mode: one
   duration: "300s"
   scheduler:
